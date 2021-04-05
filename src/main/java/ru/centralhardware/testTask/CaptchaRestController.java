@@ -17,6 +17,7 @@ public class CaptchaRestController {
 
     private static final String CAPTCHA_TEXT_HEADER_NAME = "X-captcha_string";
     private static final String CACHE_CONTROL_HEADER_NAME = "Cache-Control";
+    public static final String IMAGE_PATH_HEADER_NAME  = "image-file-path";
 
     private final TextGenerator textGenerator;
     private final ImageGenerator imageGenerator;
@@ -39,11 +40,13 @@ public class CaptchaRestController {
         HttpHeaders headers = new HttpHeaders();
         headers.set(CAPTCHA_TEXT_HEADER_NAME, captchaText);
         headers.set(CACHE_CONTROL_HEADER_NAME, "no-cache");
-        return ResponseEntity.ok().
+        headers.set(IMAGE_PATH_HEADER_NAME, image.getAbsolutePath());
+        var responseEntity =  ResponseEntity.ok().
                 headers(headers).
                 contentLength(image.length()).
                 contentType(MediaType.IMAGE_PNG).
                 body(new InputStreamResource(new FileInputStream(image)));
+        return responseEntity;
     }
 
 }
