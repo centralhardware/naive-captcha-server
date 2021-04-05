@@ -1,4 +1,4 @@
-package ru.centralhardware.testTask;
+package ru.centralhardware.testTask.web;
 
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpHeaders;
@@ -6,6 +6,9 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import ru.centralhardware.testTask.config.Config;
+import ru.centralhardware.testTask.ImageGen.CaptchaImageGenerator;
+import ru.centralhardware.testTask.TextGen.TextGenerator;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;

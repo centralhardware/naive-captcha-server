@@ -1,8 +1,10 @@
-package ru.centralhardware.testTask;
+package ru.centralhardware.testTask.web;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
+import ru.centralhardware.testTask.Id.IdGenerator;
+import ru.centralhardware.testTask.web.CaptchaRestController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

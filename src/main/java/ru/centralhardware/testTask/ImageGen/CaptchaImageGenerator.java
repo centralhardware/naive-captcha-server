@@ -1,4 +1,4 @@
-package ru.centralhardware.testTask;
+package ru.centralhardware.testTask.ImageGen;
 
 import java.io.File;
 

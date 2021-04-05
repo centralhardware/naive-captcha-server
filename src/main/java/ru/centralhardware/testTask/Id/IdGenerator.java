@@ -1,4 +1,4 @@
-package ru.centralhardware.testTask;
+package ru.centralhardware.testTask.Id;
 
 public interface IdGenerator {
 

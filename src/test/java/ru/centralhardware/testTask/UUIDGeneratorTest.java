@@ -1,6 +1,7 @@
 package ru.centralhardware.testTask;
 
 import org.junit.jupiter.api.Test;
+import ru.centralhardware.testTask.Id.UUIDGenerator;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

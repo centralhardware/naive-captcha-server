@@ -2,6 +2,7 @@ package ru.centralhardware.testTask;
 
 import org.junit.jupiter.api.Test;
 import org.junitpioneer.jupiter.SetEnvironmentVariable;
+import ru.centralhardware.testTask.TextGen.RandomTextGenerator;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
