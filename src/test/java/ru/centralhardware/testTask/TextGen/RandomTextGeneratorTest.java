@@ -1,10 +1,9 @@
-package ru.centralhardware.testTask;
+package ru.centralhardware.testTask.TextGen;
 
 import org.junit.jupiter.api.Test;
 import org.junitpioneer.jupiter.SetEnvironmentVariable;
-import ru.centralhardware.testTask.TextGen.RandomTextGenerator;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 @SetEnvironmentVariable(
         key = "CAPTCHA_IS_USE_LETTERS",

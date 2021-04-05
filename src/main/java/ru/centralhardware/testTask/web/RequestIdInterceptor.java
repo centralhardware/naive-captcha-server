@@ -14,7 +14,7 @@ import java.io.File;
 @Slf4j
 public class RequestIdInterceptor implements HandlerInterceptor {
 
-    public static final String REQUEST_ID_HEADER_NAME = "X-request_id";
+    public static final String REQUEST_ID_HEADER_NAME = "X-request-id";
 
     private final IdGenerator idGenerator;
 
