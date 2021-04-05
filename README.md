@@ -57,3 +57,7 @@ go to the server [endpoint](http://localhost:8080/get-captcha)
 | CAPTCHA_STRING_LENGTH   | captcha text length                                 | 7              |
 | CAPTCHA_IS_USE_LETTERS  | will be used alphabetic characters                  | true           |
 | CAPTCHA_IS_USE_NUMBERS  | will numbers be used                                | true           |
+
+# download
+
+[jar](https://github.com/centralhardware/test/releases/download/first/test2-1.0-SNAPSHOT.jar)
