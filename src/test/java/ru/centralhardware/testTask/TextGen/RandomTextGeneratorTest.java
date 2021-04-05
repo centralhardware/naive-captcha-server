@@ -5,14 +5,6 @@ import org.junitpioneer.jupiter.SetEnvironmentVariable;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@SetEnvironmentVariable(
-        key = "CAPTCHA_IS_USE_LETTERS",
-        value = "true"
-)
-@SetEnvironmentVariable(
-        key = "CAPTCHA_IS_USE_NUMBERS",
-        value = "true"
-)
 public class RandomTextGeneratorTest {
 
     private static final int RANDOM_TEXT_LENGTH = 5;
