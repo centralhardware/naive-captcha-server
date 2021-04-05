@@ -30,7 +30,7 @@ public class RequestIdInterceptor implements HandlerInterceptor {
 
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) {
-        new File(response.getHeader(CaptchaRestController.IMAGE_PATH_HEADER_NAME)).delete();
+        new File(String.valueOf(request.getSession().getAttribute(CaptchaRestController.IMAGE_PATH_HEADER_NAME))).delete();
         log.debug("request {} complete", response.getHeader(REQUEST_ID_HEADER_NAME));
     }
 }

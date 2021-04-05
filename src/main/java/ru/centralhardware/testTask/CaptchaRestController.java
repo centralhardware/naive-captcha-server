@@ -7,10 +7,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.nio.file.Files;
 
 @Controller
 public class CaptchaRestController {
@@ -34,19 +34,18 @@ public class CaptchaRestController {
      * добиться устойчивости к данной уязыимости если отсылать не оригинальный текст а его криптостокимй хеш
      */
     @GetMapping("/get-captcha")
-    public ResponseEntity<InputStreamResource> getCaptcha() throws IOException {
+    public ResponseEntity<InputStreamResource> getCaptcha(HttpServletRequest request) throws IOException {
         String captchaText = textGenerator.generate(Config.CAPTCHA_STRING_LENGTH);
         File image = imageGenerator.generate(captchaText);
         HttpHeaders headers = new HttpHeaders();
         headers.set(CAPTCHA_TEXT_HEADER_NAME, captchaText);
         headers.set(CACHE_CONTROL_HEADER_NAME, "no-cache");
-        headers.set(IMAGE_PATH_HEADER_NAME, image.getAbsolutePath());
-        var responseEntity =  ResponseEntity.ok().
+        request.getSession().setAttribute(IMAGE_PATH_HEADER_NAME, image.getAbsolutePath());
+        return ResponseEntity.ok().
                 headers(headers).
                 contentLength(image.length()).
                 contentType(MediaType.IMAGE_PNG).
                 body(new InputStreamResource(new FileInputStream(image)));
-        return responseEntity;
     }
 
 }

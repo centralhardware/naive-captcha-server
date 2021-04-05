@@ -18,11 +18,11 @@ public class RandomImageGenerator implements ImageGenerator {
     public File generate(String randomText) {
         File res = null;
         try {
-            res = Files.createTempFile("", ".png").toFile();
+            res = Files.createTempFile("captcha_server", ".png").toFile();
             res.deleteOnExit();
             BufferedImage captcha = generateImageWithText(randomText);
-            captcha = addNoise(captcha);
-            captcha = addLines(captcha);
+            addNoise(captcha);
+            addLines(captcha);
             ImageIO.write(captcha, "png", res);
         } catch (IOException e) {
             e.printStackTrace();
@@ -40,24 +40,20 @@ public class RandomImageGenerator implements ImageGenerator {
 
     private final SecureRandom random = new SecureRandom();
 
-    private BufferedImage addNoise(BufferedImage bufferedImage){
-        BufferedImage res = bufferedImage;
-        Graphics2D g2d = res.createGraphics();
+    private void addNoise(BufferedImage bufferedImage){
+        Graphics2D g2d = bufferedImage.createGraphics();
         g2d.setColor(Color.WHITE);
         for (int i = 0; i < 50; i++) {
             g2d.fillRect(random.nextInt(541),random.nextInt(241), 8, 8);
         }
-        return res;
     }
 
-    private BufferedImage addLines(BufferedImage bufferedImage){
-        BufferedImage res = bufferedImage;
-        Graphics2D g2d = res.createGraphics();
+    private void addLines(BufferedImage bufferedImage){
+        Graphics2D g2d = bufferedImage.createGraphics();
         g2d.setColor(Color.WHITE);
         for (int i = 0; i < 3; i++) {
             g2d.drawLine(0,random.nextInt(241), 540, random.nextInt(241));
         }
-        return bufferedImage;
     }
 
 }

@@ -12,7 +12,7 @@ public class UUIDGeneratorTest {
 
     @Test
     public void generateID() {
-        String uuid = uuidGenerator.generateID();;
+        String uuid = uuidGenerator.generateID();
         assertEquals(36, uuid.length());
     }
 }
