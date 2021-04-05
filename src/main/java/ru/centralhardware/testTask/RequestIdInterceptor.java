@@ -20,6 +20,9 @@ public class RequestIdInterceptor implements HandlerInterceptor {
         this.idGenerator = idGenerator;
     }
 
+    /**
+     * set request id header
+     */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
         String requestId = idGenerator.generateID();
@@ -28,6 +31,9 @@ public class RequestIdInterceptor implements HandlerInterceptor {
         return true;
     }
 
+    /**
+     * delete captcha image file
+     */
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) {
         new File(String.valueOf(request.getSession().getAttribute(CaptchaRestController.IMAGE_PATH_HEADER_NAME))).delete();

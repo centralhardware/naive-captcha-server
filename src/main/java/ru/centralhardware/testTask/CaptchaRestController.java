@@ -20,9 +20,9 @@ public class CaptchaRestController {
     public static final String IMAGE_PATH_HEADER_NAME  = "image-file-path";
 
     private final TextGenerator textGenerator;
-    private final ImageGenerator imageGenerator;
+    private final CaptchaImageGenerator imageGenerator;
 
-    public CaptchaRestController(TextGenerator textGenerator, ImageGenerator imageGenerator) {
+    public CaptchaRestController(TextGenerator textGenerator, CaptchaImageGenerator imageGenerator) {
         this.textGenerator = textGenerator;
         this.imageGenerator = imageGenerator;
     }
@@ -32,6 +32,7 @@ public class CaptchaRestController {
      * не имеет смыслы возращать правильный текст капчи, так как такая система будет обсолютна не устойчива к взлому
      * достаточно будет использовать curl или аналогичный инструмент для просмотра правильного ответа, Однако можно
      * добиться устойчивости к данной уязыимости если отсылать не оригинальный текст а его криптостокимй хеш
+     * @param request need to pass value (Path to captcha image file) to interceptor
      */
     @GetMapping("/get-captcha")
     public ResponseEntity<InputStreamResource> getCaptcha(HttpServletRequest request) throws IOException {

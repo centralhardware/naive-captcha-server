@@ -12,8 +12,11 @@ import java.security.SecureRandom;
 
 import static java.awt.image.BufferedImage.TYPE_INT_RGB;
 
+/**
+ * implementation of a captcha generator based on random points and lines
+ */
 @Component
-public class RandomImageGenerator implements ImageGenerator {
+public class LinesAndDotsCaptchaGenerator implements CaptchaImageGenerator {
     @Override
     public File generate(String randomText) {
         File res = null;
@@ -30,6 +33,11 @@ public class RandomImageGenerator implements ImageGenerator {
         return res;
     }
 
+    /**
+     * create image with giving text
+     * @param text text that places on image
+     * @return image
+     */
     private BufferedImage generateImageWithText(String text){
         BufferedImage image = new BufferedImage(540, 240, TYPE_INT_RGB);
         Graphics2D g2d = image.createGraphics();
@@ -40,6 +48,10 @@ public class RandomImageGenerator implements ImageGenerator {
 
     private final SecureRandom random = new SecureRandom();
 
+    /**
+     * add 50 randomly placed dots
+     * @param bufferedImage image to ad noise
+     */
     private void addNoise(BufferedImage bufferedImage){
         Graphics2D g2d = bufferedImage.createGraphics();
         g2d.setColor(Color.WHITE);
@@ -48,6 +60,10 @@ public class RandomImageGenerator implements ImageGenerator {
         }
     }
 
+    /**
+     * add tree random lines that stretch from the left edge to the right
+     * @param bufferedImage image to add Lines
+     */
     private void addLines(BufferedImage bufferedImage){
         Graphics2D g2d = bufferedImage.createGraphics();
         g2d.setColor(Color.WHITE);

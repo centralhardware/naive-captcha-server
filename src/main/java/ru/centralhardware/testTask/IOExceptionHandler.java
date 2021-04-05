@@ -13,6 +13,12 @@ import java.io.IOException;
 @Slf4j
 public class IOExceptionHandler {
 
+    /**
+     * log exception and return server error
+     * @param exception
+     * @param request
+     * @return 500 error
+     */
     @ExceptionHandler(value = {
             IOException.class
     })
