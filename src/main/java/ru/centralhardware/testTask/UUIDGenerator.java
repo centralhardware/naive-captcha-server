@@ -2,12 +2,16 @@ package ru.centralhardware.testTask;
 
 import org.springframework.stereotype.Component;
 
+import java.util.UUID;
+
 @Component
 public class UUIDGenerator implements IdGenerator {
 
     @Override
     public String generateID() {
-        return null;
+        return UUID.randomUUID().toString();
     }
+
+
 
 }

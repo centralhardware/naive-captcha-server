@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 @Slf4j
 public class RequestIdInterceptor implements HandlerInterceptor {
 
-    private static final String REQUEST_ID_HEADER_NAME = "X-request_id";
+    public static final String REQUEST_ID_HEADER_NAME = "X-request_id";
 
     private final IdGenerator idGenerator;
 
