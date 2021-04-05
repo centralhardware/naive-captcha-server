@@ -15,14 +15,15 @@ public class IOExceptionHandler {
 
     /**
      * log exception and return server error
+     *
      * @return 500 error
      */
     @ExceptionHandler(value = {
             IOException.class
     })
-    protected ResponseEntity<?> handle(IOException exception, WebRequest request){
+    protected ResponseEntity<?> handle(IOException exception, WebRequest request) {
         log.warn("unable to read captcha image file for request " +
-                        request.getHeader(RequestIdInterceptor.REQUEST_ID_HEADER_NAME), exception);
+                request.getHeader(RequestIdInterceptor.REQUEST_ID_HEADER_NAME), exception);
         return ResponseEntity.
                 status(HttpStatus.INTERNAL_SERVER_ERROR).
                 build();

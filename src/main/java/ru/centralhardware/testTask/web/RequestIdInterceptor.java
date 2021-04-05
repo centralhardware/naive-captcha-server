@@ -29,7 +29,7 @@ public class RequestIdInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
         String requestId = idGenerator.generateID();
         log.info("request received. Id {}.", requestId);
-        response.addHeader(REQUEST_ID_HEADER_NAME,  requestId);
+        response.addHeader(REQUEST_ID_HEADER_NAME, requestId);
         return true;
     }
 

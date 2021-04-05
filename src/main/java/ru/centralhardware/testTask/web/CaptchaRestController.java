@@ -18,9 +18,9 @@ import java.io.IOException;
 @Controller
 public class CaptchaRestController {
 
-    private static final String CAPTCHA_TEXT_HEADER_NAME    = "X-captcha_string";
-    private static final String CACHE_CONTROL_HEADER_NAME   = "Cache-Control";
-    public static final String IMAGE_PATH_HEADER_NAME       = "image-file-path";
+    private static final String CAPTCHA_TEXT_HEADER_NAME = "X-captcha_string";
+    private static final String CACHE_CONTROL_HEADER_NAME = "Cache-Control";
+    public static final String IMAGE_PATH_HEADER_NAME = "image-file-path";
 
     private final TextGenerator textGenerator;
     private final CaptchaImageGenerator imageGenerator;
@@ -35,6 +35,7 @@ public class CaptchaRestController {
      * не имеет смыслы возращать правильный текст капчи, так как такая система будет обсолютна не устойчива к взлому
      * достаточно будет использовать curl или аналогичный инструмент для просмотра правильного ответа, Однако можно
      * добиться устойчивости к данной уязыимости если отсылать не оригинальный текст а его криптостокимй хеш
+     *
      * @param request need to pass value (Path to captcha image file) to interceptor
      */
     @GetMapping("/get-captcha")
