@@ -18,9 +18,9 @@ import java.io.IOException;
 @Controller
 public class CaptchaRestController {
 
-    private static final String CAPTCHA_TEXT_HEADER_NAME = "X-captcha_string";
-    private static final String CACHE_CONTROL_HEADER_NAME = "Cache-Control";
-    public static final String IMAGE_PATH_HEADER_NAME  = "image-file-path";
+    private static final String CAPTCHA_TEXT_HEADER_NAME    = "X-captcha_string";
+    private static final String CACHE_CONTROL_HEADER_NAME   = "Cache-Control";
+    public static final String IMAGE_PATH_HEADER_NAME       = "image-file-path";
 
     private final TextGenerator textGenerator;
     private final CaptchaImageGenerator imageGenerator;
