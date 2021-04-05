@@ -1,3 +1,7 @@
+# sample of captcha image
+
+![img.png](img.png)
+
 # install docker
 
 ### on ubuntu
@@ -40,7 +44,7 @@ sudo docker run -d -p 8080:8080    \
   -e CAPTCHA_STRING_LENGTH=5       \
   -e CAPTCHA_IS_USE_LETTERS=true   \ 
   -e CAPTCHA_IS_USE_NUMBERS=false  \ 
-  captcha_server
+  --name captcha_server captcha_server
 ```
 
 

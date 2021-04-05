@@ -28,7 +28,7 @@ public class RequestIdInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
         String requestId = idGenerator.generateID();
-        log.debug("request received. Id {}. Request detail: {}", requestId, request.toString());
+        log.info("request received. Id {}.", requestId);
         response.addHeader(REQUEST_ID_HEADER_NAME,  requestId);
         return true;
     }
@@ -39,6 +39,6 @@ public class RequestIdInterceptor implements HandlerInterceptor {
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) {
         new File(String.valueOf(request.getSession().getAttribute(CaptchaRestController.IMAGE_PATH_HEADER_NAME))).delete();
-        log.debug("request {} complete", response.getHeader(REQUEST_ID_HEADER_NAME));
+        log.info("request {} complete", response.getHeader(REQUEST_ID_HEADER_NAME));
     }
 }

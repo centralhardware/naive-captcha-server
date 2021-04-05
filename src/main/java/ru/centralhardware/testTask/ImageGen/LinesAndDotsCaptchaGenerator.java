@@ -62,7 +62,7 @@ public class LinesAndDotsCaptchaGenerator implements CaptchaImageGenerator {
     private void addNoise(BufferedImage bufferedImage){
         Graphics2D g2d = bufferedImage.createGraphics();
         g2d.setColor(Color.WHITE);
-        for (int i = 0; i < DOTS_COUNT-1; i++) {
+        for (int i = 0; i < DOTS_COUNT; i++) {
             g2d.fillRect(random.nextInt(WIDTH+1),random.nextInt(HEIGHT+1), 8, 8);
         }
     }
@@ -74,7 +74,7 @@ public class LinesAndDotsCaptchaGenerator implements CaptchaImageGenerator {
     private void addLines(BufferedImage bufferedImage){
         Graphics2D g2d = bufferedImage.createGraphics();
         g2d.setColor(Color.WHITE);
-        for (int i = 0; i < LINES_COUNT - 1; i++) {
+        for (int i = 0; i < LINES_COUNT ; i++) {
             g2d.drawLine(0,random.nextInt(WIDTH + 1), WIDTH, random.nextInt(HEIGHT + 1));
         }
     }
