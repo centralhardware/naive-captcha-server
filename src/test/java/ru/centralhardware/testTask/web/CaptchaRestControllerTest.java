@@ -20,7 +20,7 @@ class CaptchaRestControllerTest {
     private MockMvc mockMvc;
 
     @Test
-    public void contextLoads() throws Exception {
+    public void contextLoads() {
         assertThat(controller).isNotNull();
     }
 
